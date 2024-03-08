@@ -3,30 +3,8 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 	"os"
 )
-
-func init() {
-	cobra.OnInitialize(initConfig)
-	rootCommand.PersistentFlags().StringP("author", "a", "", "author of the application")
-
-	err := viper.BindPFlag("author", rootCommand.PersistentFlags().Lookup("author"))
-	if err != nil {
-		return
-	}
-
-	viper.SetDefault("author", "Andreas Pohl")
-}
-
-func initConfig() {
-	viper.SetConfigFile(".pdf.yaml")
-
-	if err := viper.ReadInConfig(); err != nil {
-		fmt.Println("Can't read config:", err)
-		os.Exit(1)
-	}
-}
 
 var rootCommand = &cobra.Command{
 	Use:   "pdf",
