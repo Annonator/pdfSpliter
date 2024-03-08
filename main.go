@@ -1,6 +1,6 @@
 package main
 
-import "pdfSpliter/cmd"
+import "pdfSplitter/cmd"
 
 func main() {
 	cmd.Execute()
